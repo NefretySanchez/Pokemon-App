@@ -1,0 +1,41 @@
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.table {
+  background: #ffffff;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #212529;
+  vertical-align: top;
+  border-color: #ddd;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+.table-bordered > thead > tr > th {
+  border-left: 0;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+  border-bottom-width: 2px;
+  border-top: 0;
+  vertical-align: bottom;
+  padding: 8px;
+  line-height: 1.42857143;
+}
+
+.table-bordered > tbody > tr > td {
+  border-left: 0;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+  border-bottom-width: 2px;
+  border-top: 0;
+  vertical-align: bottom;
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
