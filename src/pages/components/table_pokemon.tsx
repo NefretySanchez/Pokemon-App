@@ -19,6 +19,7 @@ const TablePokemon = ({ setView }: TablePokemonInterface) => {
   const [data, setData] = useState<any[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [dataEdit, setDataEdit] = useState([]);
+  const [error, setError] = useState("");
   const [inputText, setInputText] = useState("");
 
   const onClickCreate = () => {
@@ -30,6 +31,9 @@ const TablePokemon = ({ setView }: TablePokemonInterface) => {
       .get("https://bp-pokemons.herokuapp.com/?idAuthor=1")
       .then((response) => {
         setData(response.data);
+      })
+      .catch((error) => {
+        setError(error);
       });
   };
 
@@ -91,41 +95,42 @@ const TablePokemon = ({ setView }: TablePokemonInterface) => {
               </tr>
             </thead>
             <tbody>
-              {dataPokemons?.map((pokemon, index) => {
-                return (
-                  <>
-                    <tr>
-                      <td key={pokemon?.name}>{pokemon?.name}</td>
-                      <td className="text-center" key={pokemon?.image}>
-                        <a
-                          href={pokemon?.image}
-                          className="link-image-pokemon"
-                          target="_blank"
-                        >
-                          {" "}
-                          <FontAwesomeIcon icon={faImage} />
-                        </a>
-                      </td>
-                      <td key={pokemon?.attack}>{pokemon?.attack}</td>
-                      <td key={index + 1}>{pokemon?.defense}</td>
-                      <td key={pokemon?.id} className="text-center">
-                        <button
-                          className="btn btn-table"
-                          onClick={() => editPokemon(pokemon)}
-                        >
-                          <FontAwesomeIcon icon={faEdit} />
-                        </button>
-                        <button
-                          className="btn btn-table"
-                          onClick={() => removePokemon(pokemon.id)}
-                        >
-                          <FontAwesomeIcon icon={faTrash} />
-                        </button>
-                      </td>
-                    </tr>
-                  </>
-                );
-              })}
+              {dataPokemons.length > 0 &&
+                dataPokemons?.map((pokemon, index) => {
+                  return (
+                    <>
+                      <tr>
+                        <td key={pokemon?.name}>{pokemon?.name}</td>
+                        <td className="text-center" key={pokemon?.image}>
+                          <a
+                            href={pokemon?.image}
+                            className="link-image-pokemon"
+                            target="_blank"
+                          >
+                            {" "}
+                            <FontAwesomeIcon icon={faImage} />
+                          </a>
+                        </td>
+                        <td key={pokemon?.attack}>{pokemon?.attack}</td>
+                        <td key={index + 1}>{pokemon?.defense}</td>
+                        <td key={pokemon?.id} className="text-center">
+                          <button
+                            className="btn btn-table"
+                            onClick={() => editPokemon(pokemon)}
+                          >
+                            <FontAwesomeIcon icon={faEdit} />
+                          </button>
+                          <button
+                            className="btn btn-table"
+                            onClick={() => removePokemon(pokemon.id)}
+                          >
+                            <FontAwesomeIcon icon={faTrash} />
+                          </button>
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
             </tbody>
           </table>
         </div>
