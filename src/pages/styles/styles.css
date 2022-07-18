@@ -53,28 +53,59 @@ body {
   margin-right: 7px;
 }
 
-.ml-20{
-    margin-left: 50px;
+.ml-20 {
+  margin-left: 50px;
 }
 
-.ml-24{
-    margin-left: 24px;
+.ml-24 {
+  margin-left: 24px;
 }
 
 .float-rigth {
   float: right;
 }
 
-.btn-table{
-    background: none;
-    border: none;
-    color: #8d33ff;
+.btn-table {
+  background: none;
+  border: none;
+  color: #8d33ff;
 }
 
-.btn-edit{
-    margin-left: 20px;
+.btn-edit {
+  margin-left: 20px;
 }
 
-.link-image-pokemon{
-    color: #8d33ff;
+.link-image-pokemon {
+  color: #8d33ff;
+}
+
+@media (max-width: 576px) {
+  .btn-create {
+    float: none;
+    margin-top: 10px;
+  }
+
+  .ml-4 {
+    margin-left: 0;
+  }
+
+  .mr-7 {
+    margin-right: 0;
+  }
+
+  .ml-20 {
+    margin-left: 0;
+  }
+
+  .ml-24 {
+    margin-left: 0;
+  }
+
+  .float-rigth {
+    float: none;
+  }
+
+  .card {
+    width: 100%;
+  }
 }
